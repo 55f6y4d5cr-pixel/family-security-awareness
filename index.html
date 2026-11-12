@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A safe, interactive security-awareness lesson about recognizing suspicious urgent requests.">
+  <title>Security Awareness: Pause Before You Act</title>
+  <style>
+    :root { color-scheme: light; --ink:#172033; --muted:#536078; --blue:#2457c5; --pale:#eef3ff; --line:#d8dfeb; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.6 system-ui,-apple-system,Segoe UI,sans-serif; color:var(--ink); background:#f5f7fb; }
+    header { background:#14213d; color:white; padding:2.5rem 1.25rem; }
+    header div, main, footer { max-width:850px; margin:auto; }
+    header p { color:#d8e2fa; margin-bottom:0; }
+    main { padding:1.5rem 1rem 3rem; }
+    section { background:white; border:1px solid var(--line); border-radius:14px; padding:1.25rem; margin:1rem 0; }
+    h1,h2 { line-height:1.2; }
+    h1 { margin:.2rem 0; font-size:clamp(2rem,5vw,3rem); }
+    h2 { margin-top:0; font-size:1.35rem; }
+    .eyebrow { text-transform:uppercase; letter-spacing:.09em; font-size:.78rem; font-weight:700; }
+    .notice { border-left:5px solid var(--blue); background:var(--pale); padding:1rem; border-radius:8px; }
+    .choice { display:block; width:100%; text-align:left; margin:.6rem 0; padding:.85rem 1rem; border:1px solid var(--line); border-radius:9px; background:white; color:var(--ink); font:inherit; cursor:pointer; }
+    .choice:hover,.choice:focus { border-color:var(--blue); outline:2px solid #c9d8ff; }
+    #feedback { min-height:3rem; padding:.8rem; background:#f1f4f9; border-radius:8px; }
+    a { color:var(--blue); }
+    footer { padding:0 1rem 2rem; color:var(--muted); font-size:.9rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <div class="eyebrow">Security awareness</div>
+      <h1>Pause before you act.</h1>
+      <p>Learn to spot pressure tactics in urgent messages and verify requests safely.</p>
+    </div>
+  </header>
+  <main>
+    <section class="notice" aria-label="Training notice">
+      <strong>Training exercise:</strong> This page is an educational security-awareness example. It does not ask for passwords, payment, banking information, or personal details. No answers are sent or stored.
+    </section>
+    <section>
+      <h2>What should make you pause?</h2>
+      <p>A message that claims there is a family emergency and asks for immediate financial help may be genuine—or it may be an attempt to bypass your judgment. Scammers often combine emotional pressure with urgency and an unusual request.</p>
+      <ul>
+        <li><strong>Urgency:</strong> “Do this right now” or “there is no time to call.”</li>
+        <li><strong>Emotional pressure:</strong> a frightening story designed to trigger panic or guilt.</li>
+        <li><strong>Unusual payment request:</strong> a request for a transfer, gift cards, cryptocurrency, or secrecy.</li>
+        <li><strong>Unverified identity:</strong> a familiar display name or email signature is not proof of who sent it.</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Try a quick knowledge check</h2>
+      <p>You receive a message from someone you know saying a relative is in trouble and asking you to send money immediately. What is the safest first step?</p>
+      <button class="choice" type="button" data-answer="no">A. Reply to the message and ask where to send the money.</button>
+      <button class="choice" type="button" data-answer="yes">B. Pause and verify the story using a trusted phone number or another known channel.</button>
+      <button class="choice" type="button" data-answer="no">C. Forward the message to coworkers so they can decide.</button>
+      <p id="feedback" role="status" aria-live="polite">Choose an answer to see feedback. Your choice stays in this browser session and is not transmitted.</p>
+    </section>
+    <section>
+      <h2>A safer response checklist</h2>
+      <ol>
+        <li>Stop. Do not let the message's urgency set your pace.</li>
+        <li>Verify independently. Contact the person through a number or channel you already trust—not details supplied in the message.</li>
+        <li>Do not send money, gift cards, codes, or sensitive information until the request is confirmed.</li>
+        <li>Report suspicious messages through your organization's approved security-reporting process.</li>
+      </ol>
+    </section>
+    <section>
+      <h2>Remember</h2>
+      <p>When a request combines urgency, strong emotion, secrecy, and money, slow down and verify independently. If you already responded, contact your organization's IT or security team promptly.</p>
+    </section>
+  </main>
+  <footer>
+    <p>Educational content only. This page contains no forms, analytics, tracking pixels, external scripts, or data collection.</p>
+  </footer>
+  <script>
+    document.querySelectorAll('button[data-answer]').forEach(function (button) {
+      button.addEventListener('click', function () {
+        var feedback = document.getElementById('feedback');
+        if (button.dataset.answer === 'yes') {
+          feedback.textContent = 'Correct. Verify through a trusted, independent channel before taking action.';
+        } else {
+          feedback.textContent = 'Not quite. Do not rely on the message itself. Pause and verify using contact information you already know is genuine.';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
